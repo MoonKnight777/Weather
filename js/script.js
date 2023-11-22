@@ -31,7 +31,7 @@ async function getweather(){
 
 
 async function cordinategen(City) {
-	const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${City}&limit=1&appid=${apikey}`);
+	const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${City}&limit=1&appid=${apikey}`);
 	const data = await response.json();
 	console.log(data)
 	const lat = data[0].lat;
