@@ -20,8 +20,9 @@ body {
 }
 
 .main-weather-box {
-    background: #ffffff2c;
+    background: linear-gradient(240deg,#bbbbbb0c, rgba(119, 117, 117, 0.522));
     background-blend-mode: darken;
+    filter: blur(100%);
     margin: 0 20px;
     padding: 40px;
     width: 50%;
@@ -89,12 +90,12 @@ body {
     background: transparent;
     outline: none;
     border: none;
-    border-bottom: 1px solid #dadada86;
+    border-bottom: 1px solid #dadada94;
 }
 
 .search-box::placeholder,.search-box {
     /* font-family: 'Poppins';   */
-    color: rgba(255, 255, 255, 0.418);
+    color: rgba(255, 255, 255, 0.541);
     font-size: 19px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -106,20 +107,20 @@ body {
     /* height: 3vw; */
     border-radius: 4px;
     padding: 0.9vw 2vw;
-    color: rgba(0, 0, 0, 0.541);
+    color: rgba(0, 0, 0, 0.712);
     outline: none;
     border: none;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.26);
+    background: rgba(255, 255, 255, 0.479);
 }
 
 @media only screen and (max-width: 600px) {
 
     body {
-        background: red;
+        background: linear-gradient();
     }
 
     
@@ -206,10 +207,8 @@ body {
     }
 
     .search-btn {
-        /* width: 19%; */
-        /* height: 3vw; */
         border-radius: 4px;
-        padding: 3vw 2.1vw;
+        padding: 3vw 2vw;
         font-size: 16px;
         font-weight: 400;
     }
