@@ -30,45 +30,11 @@ async function getweather(city){
 		condition.innerHTML = `${weatherData.weather[0].description}`
 		temp.innerHTML = `${(weatherData.main.temp - 273.15).toFixed(0)}&deg;`;
 		let date = new Date()
-		let month;
-		switch (date.getMonth()) {
-			case 0:
-				month = 'Jan';
-				break;
-			case 1:
-				month = 'Feb';
-				break;
-			case 2:
-				month = 'Mar';
-				break;
-			case 3:
-				month = 'Apr';
-				break;
-			case 4:
-				month = 'May';
-				break;
-			case 5:
-				month = 'Jun';
-				break;
-			case 6:
-				month = 'Jul';
-				break;
-			case 7:
-				month = 'Aug';
-				break;
-			case 8:
-				month = 'Sep';
-				break;
-			case 9:
-				month = 'Oct';
-				break;
-			case 10:
-				month = 'Nov';
-				break;
-			case 11:
-				month = 'Dec';
-				break;
-		}
+		let monthNames = [
+			'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+			'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+		];		
+		let month = monthNames[date.getMonth()];
 		let formattedDate = `${date.getDate()} ${month}, ${date.getHours()}:${date.getMinutes()}`;
 
 		dt.innerHTML = formattedDate
