@@ -29,13 +29,18 @@ async function getweather(city){
 		statename.innerHTML = `${state}`
 		condition.innerHTML = `${weatherData.weather[0].description}`
 		temp.innerHTML = `${(weatherData.main.temp - 273.15).toFixed(0)}&deg;`;
-		let date = new Date()
+		let date = new Date();
 		let monthNames = [
 			'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
 			'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-		];		
+		];
+		
+		let hours = date.getHours().toString().padStart(2, '0');
+		let minutes = date.getMinutes().toString().padStart(2, '0');
+		
 		let month = monthNames[date.getMonth()];
-		let formattedDate = `${date.getDate()} ${month}, ${date.getHours()}:${date.getMinutes()}`;
+		let formattedDate = `${date.getDate()} ${month}, ${hours}:${minutes}`;
+		
 
 		dt.innerHTML = formattedDate
 		if (weatherData.weather[0].icon === "01d") {
