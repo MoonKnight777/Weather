@@ -20,7 +20,7 @@ body {
 }
 
 .main-weather-box {
-    background: linear-gradient(240deg,#bbbbbb0c, rgba(119, 117, 117, 0.522));
+    background: linear-gradient(240deg, #0000004f, rgb(119 117 117 / 65%));
     background-blend-mode: darken;
     filter: blur(100%);
     margin: 0 20px;
@@ -93,7 +93,8 @@ body {
     border-bottom: 1px solid #dadada94;
 }
 
-.search-box::placeholder,.search-box {
+.search-box::placeholder,
+.search-box {
     /* font-family: 'Poppins';   */
     color: rgba(255, 255, 255, 0.541);
     font-size: 19px;
@@ -123,13 +124,13 @@ body {
         background: linear-gradient();
     }
 
-    
+
     .wrapper {
         padding-top: 10vw;
         justify-content: flex-start;
 
     }
-    
+
     .main-weather-box {
         padding: 20px;
         width: 80%;

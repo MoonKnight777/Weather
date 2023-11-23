@@ -3,10 +3,12 @@ const url = 'https://weatherapi-com.p.rapidapi.com/forecast.json?q=mumbai&aqi=ye
 const url2 = `https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=${apikey}`;
 const locurl = `http://api.openweathermap.org/geo/1.0/direct?q=Mumbai&limit=1&appid=${apikey}`
 
-async function getweather(){
-
+async function getweather(city){
 	let searchedcity = document.querySelector(".search-box").value
-	const { lat, lon , city , state } = await cordinategen(`${searchedcity}`); // Using await to get the coordinates
+	if (searchedcity == ''){
+		searchedcity = city
+	}
+	var { lat, lon , city , state } = await cordinategen(`${searchedcity}`); // Using await to get the coordinates
 
     const weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`)
         .then(response => response.json())
@@ -21,13 +23,55 @@ async function getweather(){
         let condition = document.querySelector(".condition h1");
         let temp = document.querySelector(".temp");
         let background = document.querySelector(".wrapper");
+        let dt = document.querySelector(".data-time");
         weatherimg.innerHTML = `<img src="./img/weathericon/${weatherData.weather[0].icon}.png" alt="">`;
 		cityname.innerHTML = `${city}`
 		statename.innerHTML = `${state}`
 		condition.innerHTML = `${weatherData.weather[0].description}`
 		temp.innerHTML = `${(weatherData.main.temp - 273.15).toFixed(0)}&deg;`;
-		console.log(typeof(weatherData.weather[0].icon))
-		
+		let date = new Date()
+		let month;
+		switch (date.getMonth()) {
+			case 0:
+				month = 'Jan';
+				break;
+			case 1:
+				month = 'Feb';
+				break;
+			case 2:
+				month = 'Mar';
+				break;
+			case 3:
+				month = 'Apr';
+				break;
+			case 4:
+				month = 'May';
+				break;
+			case 5:
+				month = 'Jun';
+				break;
+			case 6:
+				month = 'Jul';
+				break;
+			case 7:
+				month = 'Aug';
+				break;
+			case 8:
+				month = 'Sep';
+				break;
+			case 9:
+				month = 'Oct';
+				break;
+			case 10:
+				month = 'Nov';
+				break;
+			case 11:
+				month = 'Dec';
+				break;
+		}
+		let formattedDate = `${date.getDate()} ${month}, ${date.getHours()}:${date.getMinutes()}`;
+
+		dt.innerHTML = formattedDate
 		if (weatherData.weather[0].icon === "01d") {
 			background.style.background = "linear-gradient(120deg, #000000d6, #776004d6)";
 			console.log(555);
@@ -62,6 +106,10 @@ async function getweather(){
 	}
 
 }
+
+getweather('mumbai')
+
+
 
 
 async function cordinategen(City) {
